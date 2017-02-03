@@ -1,0 +1,39 @@
+<p style="font-size:10px;"> ENTER DATE HERE </p>
+<p style="font-size:15px;">\begin{center}</p>
+<p style="font-size:15px;">\large <strong>GRST Notes: Examples of Sheaf Cohomology (November 2, 2016)</strong> </p>
+<p style="font-size:15px;">\end{center}</p>
+<p style="font-size:15px;">We move on to a discussion of some simple examples of sheaf cohomology. The goal here will be to first compute the cohomology groups explicitly, and then try and figure out a more intuitive idea of what is going on behind each cohomology group. We’ll start with the triangle cell complex, denoted $latex X$, that we considered in the last post.</p>
+ENTER FIGURE HERE
+<p style="font-size:15px;">We will consider the constant sheaf $latex F_0$ over the triangle, where we assign a 1-dimensional vector space $latex k$ over each cell, and every map is an identity map. To be explicit, the diagram of the sheaf will look like the following</p>
+ENTER COMMUTATIVE DIAGRAM HERE
+<p style="font-size:15px;">where each arrow represents the identity map. The bottom row represents the vertices, the middle row represents the edges, and the top row represents the face. Thus, the co-chain complex for this sheaf would be</p>
+<p align=center> $latex 0 \xrightarrow{} k^3 \xrightarrow{\delta^0} k^3 \xrightarrow{\delta^1} k \xrightarrow{\delta^2}  \ldots$</p>
+<p style="font-size:15px;">Note that the boundary maps are maps between vector spaces, we can write out each boundary map as a matrix. We will label the basis vectors of each vector space by the corresponding cell with a hat. For example, the set of ordered basis vectors is $latex \{\hat{a},\hat{b},\hat{c}\}$ for $latex C^0(X;F_0) = k^3$, $latex \{\hat{x},\hat{y},\hat{z}\}$ for $latex C^1(X;F_0) = k^3$ and $latex \{\hat{T}\}$ for $latex C^2(X;F_0)$. Recall from the previous post that the differential is defined by</p>
+<p align=center> $latex \delta^k = \sum_{\sigma \leq_1 \tau} [\sigma^k : \tau^{k+1}] \rho_{\tau, \sigma}.$</p>
+<p style="font-size:15px;">We can think of the formula in the summand as the $latex \hat{\sigma}, \hat{\tau}$ element of the matrix representation of $latex \delta_k$. Then, the $latex \delta_0$ and $latex \delta_1$ maps for this example have the following matrix representations.</p>
+<p align=center> $latex \delta^0(X;F_0) = \begin{pmatrix} 0 & 1 & -1 \\ 1 & 0 & -1 \\ 1 & -1 & 0 \end{pmatrix}$</p>
+<p align=center> $latex \delta^1(X;F_0) = \begin{pmatrix} 1 & -1 & 1 \end{pmatrix}$</p>
+<p style="font-size:15px;">From these matrix equations, it is simple to compute the kernel and image of the differential maps to get the following:</p>
+<p align=center> $latex \ker \delta^0 = \langle \hat{a} + \hat{b} + \hat{c} \rangle \hspace{20pt} \textrm{im}\, \delta^0 = \langle \hat{y} + \hat{z}, \hat{x} - \hat{z} \rangle$</p>
+<p align=center> $latex \ker \delta^1 = \langle \hat{y} + \hat{z}, \hat{x} - \hat{z} \rangle \hspace{20pt} \textrm{im}\, \delta^1 = \langle \hat{T} \rangle$</p>
+<p style="font-size:15px;">Finally, the cohomology groups are computed as the following.</p>
+<p align=center> $latex H^0 (X; F_0) = \ker \delta^0 = k$</p>
+<p align=center> $latex H^1 (X; F_0) = \frac{\ker \delta^1}{\textrm{im}\, \delta^0} = 0$</p>
+<p style="font-size:15px;">Note that in this example, the intermediate steps of calculating the sheaf cohomology groups coincide with those of calculating the singular cohomology groups of the triangle.</p>
+<p style="font-size:15px;">However, sheaf cohomology doesn't just depend on the underlying cell complex; it also depends on the choice of sheaf. Here we will consider the same triangle cell complex X but define the sheaf differently.</p>
+ENTER FIGURE HERE
+<p style="font-size:15px;">Similar to the previous example, we assign each cell a 1-dimensional vector space $latex k$ and assign each map to be the constant map except those from cell $latex b$ or $latex c$ (the hollowed out vertices in the figure). The maps from these cells will be the zero map. We denote this sheaf to be $latex F_1$, and the diagram can be seen in the next figure, where the balck arrows represent identity maps and the red arrows represent zero maps.</p>
+ENTER COMMUTATIVE DIAGRAM HERE
+<p style="font-size:15px;">Following the same procedure as the first example, we can calculate the matrices representing the boundary maps for this cellular sheaf.</p>
+<p align=center> $latex \delta^0(X;F_1) = \begin{pmatrix} 0 & 0 & 0 \\ 1 & 0 & 0 \\ 1 & 0 & 0 \end{pmatrix}$</p>
+<p align=center> $latex \delta^1(X;F_1) = \begin{pmatrix} 1 & -1 & 1 \end{pmatrix}$</p>
+<p style="font-size:15px;">Continuing the procedure, we calculate the images and kernels.</p>
+<p align=center> $latex \ker \delta^0 = \langle \hat{a}, \hat{b} - \hat{c} \rangle \hspace{20pt} \textrm{im}\, \delta^0 = \langle \hat{y} + \hat{z} \rangle$</p>
+<p align=center> $latex \ker \delta^1 = \langle \hat{y} + \hat{z}, \hat{x} - \hat{z} \rangle \hspace{20pt} \textrm{im}\, \delta^1 = \langle \hat{T} \rangle$</p>
+<p style="font-size:15px;">Finally, we can use this to compute the cohomology groups.</p>
+<p align=center> $latex H^0 (X; F_0) = k^2, \hspace{20pt} H^1(X; F_1) = k$</p>
+<p style="font-size:15px;">Here we can see that even though the cell complex underlying both examples was the same, the resulting cohomology groups is dependent on the choice of sheaf. This shows that we can’t just use our intuition from simplicial or singular cohomology when dealing with sheaf cohomology. The goal is to come up with some intuition for what the cohomology groups should be given some pictorial representation of the sheaf (such as the images of the triangles above).</p>
+<p style="font-size:15px;">We can think of the zeroth cohomology group as representing the global sections of the sheaf. A global section is a choice of an element from each object in the sheaf such that it is consistent with all of the maps. For example, consider the diagram of the constant sheaf, and suppose our vector space is simply $latex k = \mathbb{R}$. Then, choosing a number $latex r \in \mathbb{R}$ for any of the vector spaces would uniquely determine the choices for all other vector spaces due to the required consistency with the identity mapping. Hence, the cohomology group of $latex H_0(X;F_0) = k$ is consistent with the number of global sections for the constant sheaf.</p>
+<p style="font-size:15px;">Next we consider the sheaf $latex F_1$, where the maps out of b and c are the zero maps. In the following diagram, the objects represent a choice of element in each vector space. Note that these zero maps, along with the fact that all other maps are the identity, will force all vector spaces other than those associated with $latex b$ and $latex c$ to have the element 0.</p>
+ENTER COMMUTATIVE DIAGRAM HERE
+<p style="font-size:15px;">Here, the red arrows (the zero maps) force the vector spaces in the middle row to have the element 0, and all vector spaces connected to the middle row by black arrows (the identity map) must also take the element 0. Thus, we are left with independent choices for b and c. Again, the cohomology group of $latex H_0(X; F_1) = k^2$ is consistent with the number of global sections for this sheaf.</p>
